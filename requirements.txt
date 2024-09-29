@@ -1,4 +1,5 @@
 apache-airflow==2.9.3
 bigframes
 requests
+openmeteo_requests
 virtualenv
