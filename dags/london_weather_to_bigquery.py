@@ -31,6 +31,7 @@ def london_weather_to_bigquery():
 
         # Current values. The order of variables needs to be the same as requested.
         return {
+            'lat_long': f"{params['latitude']}, {params['longitude']}",
             'temperature_2m': current_weather.Variables(0).Value(),
             'apparent_temperature': current_weather.Variables(1).Value(),
             'is_day': current_weather.Variables(2).Value(),
