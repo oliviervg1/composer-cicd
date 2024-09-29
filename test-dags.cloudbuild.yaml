@@ -9,10 +9,11 @@ steps:
     args: ["install", "-r", "requirements-test.txt", "--user"]
 
   - name: python
-    entrypoint: python
     env:
-    - "PATH=$$PATH:/builder/home/.local/bin"
-    args: ["-m", "pytest", "-s", "dags/"]
+    - "PATH=/builder/home/.local/bin:$$PATH"
+    script: |
+      #!/usr/bin/env bash
+      python -m pytest -s dags/
 
 options:
   logging: CLOUD_LOGGING_ONLY
