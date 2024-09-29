@@ -10,10 +10,8 @@ steps:
 
   - name: python
     env:
-    - "PATH=/builder/home/.local/bin:$$PATH"
-    script: |
-      #!/usr/bin/env bash
-      python -m pytest -s dags/
+      - "PATH=/builder/home/.local/bin:$$PATH"
+    script: "python -m pytest -s dags"
 
 options:
   logging: CLOUD_LOGGING_ONLY
