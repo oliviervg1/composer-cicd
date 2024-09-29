@@ -41,9 +41,11 @@ def london_weather_to_bigquery():
 
     @task.virtualenv(requirements=['bigframes'], venv_cache_path='/tmp/venv_cache', retries=3, retry_delay=timedelta(seconds=30))
     def insert_weather_to_bigquery(time, weather):
+        from airflow.models import Variable
+
         import bigframes.pandas as bpd
 
-        bpd.options.bigquery.project = 'bigquery-demo-396708'
+        bpd.options.bigquery.project = Variable.get('gcp_project_id')
         bpd.options.bigquery.location = 'US'
 
         # Create BigFrames DataFrames
@@ -60,7 +62,7 @@ def london_weather_to_bigquery():
 
         # Write the DataFrame to BigQuery
         merged_df.to_gbq(
-            destination_table='bigquery-demo-396708.scratch.weather',
+            destination_table=Variable.get('bigquery_destination_table'),
             if_exists='append'
         )
 
