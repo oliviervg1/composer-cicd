@@ -11,7 +11,7 @@ steps:
   - name: python
     entrypoint: python
     env:
-    - "PATH=/builder/home/.local/bin:$$PATH"
+    - "PATH=$$PATH:/builder/home/.local/bin"
     args: ["-m", "pytest", "-s", "dags/"]
 
 options:
