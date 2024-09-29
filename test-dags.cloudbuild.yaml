@@ -13,8 +13,8 @@ steps:
     args:
     - "-c"
     - |
-      export PATH=/builder/home/.local/bin:$$PATH
-      python -m pytest -s dags
+      export PATH=/builder/home/.local/bin:$$PATH \
+      && python -m pytest -s dags
 
 options:
   logging: CLOUD_LOGGING_ONLY
