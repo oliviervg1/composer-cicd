@@ -10,6 +10,8 @@ steps:
 
   - name: python
     entrypoint: python
+    env:
+      - "PATH=/builder/home/.local/bin:$$PATH"
     args: ["-m", "pytest", "-s", "dags/"]
 
 options:
