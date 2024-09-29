@@ -9,7 +9,7 @@ steps:
     args: ["install", "-r", "requirements-test.txt", "--user"]
 
   - name: python
-    entrypoint: bin/sh
+    entrypoint: bash
     args:
     - "-c"
     - |
