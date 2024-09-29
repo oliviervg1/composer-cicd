@@ -20,8 +20,8 @@ def fetch_weather():
     # Get current weather in London
     url = 'https://api.open-meteo.com/v1/forecast'
     params = {
-        'latitude': 53.4808,
-        'longitude': 2.2426,
+        'latitude': 51.5085,
+        'longitude': -0.1257,
         'current': ['temperature_2m', 'apparent_temperature', 'is_day', 'precipitation', 'wind_speed_10m', 'wind_direction_10m']
     }
     responses = openmeteo.weather_api(url, params=params)
