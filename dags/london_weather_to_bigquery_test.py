@@ -35,7 +35,7 @@ class TestLondonWeatherDAG(unittest.TestCase):
 
         mock_response = fetch_weather.function()
 
-        self.assertEqual(mock_response['lat_long'], '51.5085, -0.1257')
+        self.assertEqual(mock_response['lat_long'], '53.0033, 2.1827')
         self.assertEqual(mock_response['temperature_2m'], 10)
         self.assertEqual(mock_response['apparent_temperature'], 11)
         self.assertEqual(mock_response['is_day'], 12)
